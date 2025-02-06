@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scrapbook Grid</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f5f5f5;
+            overflow: hidden;
+            position: relative;
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            gap: 15px;
+            width: 80%;
+            max-width: 800px;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        .grid-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 15px;
+            background: #ffcc99;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+        .grid-item img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+        .grid-item button {
+            margin-top: 10px;
+            padding: 8px 15px;
+            background-color: pink;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        .grid-item button:hover {
+            background-color: #ff99cc;
+        }
+
+        /* Falling hearts animation */
+        .heart {
+            position: absolute;
+            color: red;
+            font-size: 20px;
+            opacity: 0.8;
+            animation: fall linear infinite;
+        }
+        @keyframes fall {
+            0% { transform: translateY(-10vh); opacity: 1; }
+            100% { transform: translateY(100vh); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="grid-container">
+        <div class="grid-item">
+            <img src="image1.png" alt="Image 1">
+            <button onclick="location.href='grid1.html'">Playlist</button>
+        </div>
+        <div class="grid-item">
+            <img src="image2.png" alt="Image 2">
+            <button onclick="location.href='grid2.html'">You are</button>
+        </div>
+        <div class="grid-item">
+            <img src="image3.png" alt="Image 3">
+            <button onclick="location.href='grid3.html'">Letter</button>
+        </div>
+        <div class="grid-item">
+            <img src="image4.png" alt="Image 4">
+            <button onclick="location.href='book.html'">Memories
+            </button>
+        </div>
+        <div class="grid-item" style="background-color:#f5f5f5;">
+            
+            <button onclick="location.href='grid5.html'"style="background-color:#f5f5f5;"></button>
+        </div>
+        <div class="grid-item">
+            <img src="vidimg.png" alt="Image 6">
+            <button onclick="location.href='grid5.html'">Video</button>
+        </div>
+        <div class="grid-item" style="background-color:#f5f5f5;">
+        
+            <button onclick="location.href='grid6.html'" style="background-color:#f5f5f5;"></button>
+        </div>
+        <div class="grid-item" style="background-color:#f5f5f5;"">
+            
+            <button onclick="location.href='grid8.html'" style="background-color:#f5f5f5;"></button>
+        </div>
+        
+    </div>
+
+    <script>
+        function createHeart() {
+            const heart = document.createElement("div");
+            heart.classList.add("heart");
+            heart.innerHTML = "❤️";
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.animationDuration = Math.random() * 3 + 2 + "s"; // 2s to 5s duration
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
+        }
+
+        setInterval(createHeart, 300); // Creates a heart every 300ms
+    </script>
+
+</body>
+</html>
